@@ -1,7 +1,7 @@
 import pygame
 from helpers import *
 from constants import *
-from Post import *
+from classes.Post import *
 
 # done
 class ImagePost(Post):

@@ -1,8 +1,17 @@
 import pygame
-from helpers import screen
+from helpers import *
 from constants import WINDOW_WIDTH, WINDOW_HEIGHT, BLACK
-
-
+from buttons import *
+from classes.TextPost import TextPost
+from classes.ImagePost import ImagePost
+from classes.Comment import Comment
+from classes.Post import Post
+def create_ImagePost(image):
+    image = ImagePost(image)
+    return image
+def create_post(username, location, description):
+    post = Post(username, location, description)
+    return post
 def main():
     # Set up the game display, clock and headline
     pygame.init()
@@ -14,10 +23,15 @@ def main():
 
     # Set up background image
     background = pygame.image.load('Images/background.png')
-    background = pygame.transform.scale(background,
-                                        (WINDOW_WIDTH, WINDOW_HEIGHT))
+    background = pygame.transform.scale(background,(WINDOW_WIDTH, WINDOW_HEIGHT))
+
+
 
     # TODO: add a post here
+    Posts = []
+    Posts.append(create_post('Noamlev1_','United States','Ani HOMO',create_ImagePost('Images/ronaldo.jpg')))
+    Posts.append(create_post('Ori Aikort','Israel','Ani ohed Beitar',create_ImagePost('Images/noa_kila.jpg')))
+
 
     running = True
     while running:

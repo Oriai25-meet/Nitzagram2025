@@ -1,7 +1,7 @@
 import pygame
 from helpers import *
 from constants import *
-from Comment import *
+from classes.Comment import *
 
 
 class Post:
