@@ -2,6 +2,7 @@ import pygame
 from helpers import *
 from constants import *
 
+# done
 class Comment:
     def __init__(self,text):
         self.text = text

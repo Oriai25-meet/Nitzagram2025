@@ -2,6 +2,8 @@ import pygame
 from helpers import *
 from constants import *
 from Post import *
+
+# done
 class ImagePost(Post):
     def __init__(self,image):
         self.image = pygame.image.load(image)
