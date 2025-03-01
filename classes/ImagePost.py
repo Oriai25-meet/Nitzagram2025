@@ -15,3 +15,6 @@ class ImagePost(Post):
 
     def display_comments(self):
         super().display_comments()
+
+    def view_more_comments(self):
+        super().view_more_comments()

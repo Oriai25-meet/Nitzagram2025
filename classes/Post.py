@@ -22,7 +22,6 @@ class Post:
         self.display_header()
         self.display_likes()
         self.display_comments()
-        #pygame.display.update()
 
     def display_header(self):
         font = pygame.font.SysFont('Arial', UI_FONT_SIZE)
@@ -48,10 +47,15 @@ class Post:
         font = pygame.font.SysFont('Arial', COMMENT_TEXT_SIZE)
         y_offset = FIRST_COMMENT_Y_POS
 
-        for comment in self.comments[self.comments_display_index:self.comments_display_index + NUM_OF_COMMENTS_TO_DISPLAY]:
+        comments_to_display = self.comments[self.comments_display_index:self.comments_display_index + NUM_OF_COMMENTS_TO_DISPLAY]
+        for comment in comments_to_display:
             comment_text = font.render(comment.text, True, BLACK)
             screen.blit(comment_text, (FIRST_COMMENT_X_POS, y_offset))
             y_offset += COMMENT_LINE_HEIGHT
+        if len(self.comments) > NUM_OF_COMMENTS_TO_DISPLAY:
+            view_more_font = pygame.font.SysFont('Arial', COMMENT_TEXT_SIZE)
+            view_more_text = view_more_font.render("View More Comments", True, LIGHT_GRAY)
+            screen.blit(view_more_text, (VIEW_MORE_COMMENTS_X_POS, VIEW_MORE_COMMENTS_Y_POS))
 
     def view_more_comments(self):
         if self.comments_display_index + NUM_OF_COMMENTS_TO_DISPLAY < len(self.comments):
